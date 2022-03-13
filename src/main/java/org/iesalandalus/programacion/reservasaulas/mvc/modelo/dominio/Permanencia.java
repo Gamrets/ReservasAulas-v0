@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Permanencia {
 
-	private LocalDate dia = LocalDate.of(2018, 12, 1);
+	private LocalDate dia;
 	private static final DateTimeFormatter FORMATO_DIA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	private Tramo tramo;
 
