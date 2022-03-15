@@ -70,8 +70,8 @@ public class AulasTest {
 		}
 	}
 	
-	/*
-	@Test
+	
+	/*@Test
 	public void constructorCopiaValidoTest() {
 		Aulas aulas1 = new Aulas();
 		Aulas aulas2;
