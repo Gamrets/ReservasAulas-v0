@@ -22,10 +22,9 @@ public class Aulas {
 	}
 
 	public Aula[] get() {
-		
+
 		return copiaProfundaAulas();
 	}
-
 
 	private Aula[] copiaProfundaAulas() {
 
@@ -78,8 +77,8 @@ public class Aulas {
 		int indice = tamano + 1;
 		boolean encontrado = false;
 
-          // la variable boleana ayuda a no recorrer el array si se encontro elemento que
-         // se esta buscando
+		// la variable boleana ayuda a no recorrer el array si se encontro elemento que
+		// se esta buscando
 
 		for (int i = 0; !tamanoSuperado(i) && !encontrado; i++) {
 
@@ -103,7 +102,7 @@ public class Aulas {
 
 	}
 
-	public Aula buscar(Aula aula) { // Busco indice/posicion donde esta esta sita
+	public Aula buscar(Aula aula) { // Busco indice/posicion donde esta esta aula
 
 		if (aula == null) {
 			throw new NullPointerException("ERROR: No se puede buscar un aula nula.");
@@ -121,8 +120,7 @@ public class Aulas {
 		}
 
 	}
-	
-	
+
 	public void borrar(Aula aula) throws OperationNotSupportedException {
 
 		if (aula == null) {
@@ -154,7 +152,6 @@ public class Aulas {
 		coleccionAulas[i] = null;
 
 	}
-
 
 	// Se recorre todo el tamaño del array y se representan todos sus elementos
 
