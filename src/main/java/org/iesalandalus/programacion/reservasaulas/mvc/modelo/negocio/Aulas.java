@@ -60,7 +60,7 @@ public class Aulas {
 
 		int indice = buscarIndice(aula);
 
-		if (tamanoSuperado(indice)) { // Si supera al tamaño significa que hay huecos y se puede agregar otra
+		if (tamanoSuperado(indice)) { //Si supera al tamaño significa que hay huecos y se puede agregar otra
 			coleccionAulas[tamano] = new Aula(aula);
 			tamano++;
 
