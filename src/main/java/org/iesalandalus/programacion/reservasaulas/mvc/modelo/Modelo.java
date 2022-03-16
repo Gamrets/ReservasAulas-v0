@@ -21,6 +21,7 @@ public class Modelo {
 	}
 
 	public Aula[] getAulas() {
+		
 		return aulas.get();
 	}
 
@@ -52,6 +53,7 @@ public class Modelo {
 	}
 
 	public Profesor[] getProfesores() {
+		
 		return profesores.get();
 	}
 
