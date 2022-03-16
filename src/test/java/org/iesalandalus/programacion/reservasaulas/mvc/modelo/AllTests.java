@@ -1,5 +1,6 @@
 package org.iesalandalus.programacion.reservasaulas.mvc.modelo;
 
+
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.*;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.*;
 import org.junit.runner.RunWith;
