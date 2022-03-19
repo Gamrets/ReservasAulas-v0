@@ -271,7 +271,7 @@ public class Vista {
 
 	public void anularReserva() {
 
-		Consola.mostrarCabecera("Anular Reserva");
+		Consola.mostrarCabecera("Anular reserva");
 
 		try {
 
