@@ -31,7 +31,7 @@ public class Vista {
 
 			Consola.mostrarMenu();
 			ordinalOpcion = Consola.elegirOpcion();
-			Opcion opcion = Opcion.getOpcionSegunOridnal(ordinalOpcion);
+			Opcion opcion = Opcion.getOpcionSegunOrdinal(ordinalOpcion);
 			opcion.ejecutar();
 
 		} while (ordinalOpcion != Opcion.SALIR.ordinal());
@@ -216,7 +216,6 @@ public class Vista {
 		String nombreProfesor;
 		String[] profesores = controlador.representarProfesores();
 		String[] aulas = controlador.representarAulas();
-		String correoProfesor = new String();
 		String correoProfesorLimpio = new String();
 
 		Reserva reserva = null;
@@ -231,12 +230,9 @@ public class Vista {
 
 			for (int i = 0; i < profesores.length; i++) {
 
-				String datosProfesores = profesores[i].toString();
-
 				if (nombreProfesor.equals(profesor.getNombre())) {
 
 					profesorRegistrado = true;
-					correoProfesor = profesor.getCorreo();
 
 				}
 			}
@@ -271,17 +267,15 @@ public class Vista {
 		}
 
 		return reserva;
-
-		return null;
-
 	}
 
-	public void aunlarReserva() {
+	public void anularReserva() {
 
 		Consola.mostrarCabecera("Anular Reserva");
 
 		try {
 
+			Profesor profesor = null;
 			controlador.anularReserva(leerReserva(profesor));
 			System.out.println("Rserva  ha sido anulada.");
 
@@ -296,7 +290,7 @@ public class Vista {
 
 		Consola.mostrarCabecera("Listado de reservas");
 
-		String[] reservas = controlador.representarReservas;
+		String[] reservas = controlador.representarReservas();
 
 		if (reservas.length > 0) {
 
@@ -315,7 +309,7 @@ public class Vista {
 
 		Consola.mostrarCabecera("Listado de reservas de aulas");
 
-		Reserva[] reservas = controlador.getReservasAulas(Consola.leerAula());
+		Reserva[] reservas = controlador.getReservasAula(Consola.leerAula());
 
 		for (Reserva reserva : reservas) {
 
@@ -330,7 +324,7 @@ public class Vista {
 
 		Consola.mostrarCabecera("Listado de reservas de profesores");
 
-		Reserva[] reservas = controlador.getReservasProfesores(Consola.leerProfesor());
+		Reserva[] reservas = controlador.getReservasProfesor(Consola.leerProfesor());
 
 		for (Reserva reserva : reservas) {
 
@@ -345,7 +339,8 @@ public class Vista {
 
 		Consola.mostrarCabecera("Listado de reservas permanencia");
 
-		Reserva[] reservas = controlador.getReservasPermanencia(Consola.leerDia(), Consola.leerTramo());
+		Permanencia permanencia = new Permanencia(Consola.leerDia(), Consola.leerTramo());
+		Reserva[] reservas = controlador.getReservasPermanencia(permanencia);
 
 		for (Reserva reserva : reservas) {
 

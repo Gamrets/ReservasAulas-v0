@@ -100,7 +100,7 @@ public enum Opcion {
 
 	private String mensajeAMostrar;
 	
-	private  Vista vista;
+	private static  Vista vista;
 
 	private Opcion(String mensaje) {
 		
