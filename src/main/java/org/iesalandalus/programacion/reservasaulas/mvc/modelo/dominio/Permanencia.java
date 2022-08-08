@@ -38,7 +38,7 @@ public class Permanencia {
 	}
 
 	public Tramo getTramo() {
-		return tramo.MANANA;
+		return tramo;
 	}
 
 	private void setTramo(Tramo tramo) {

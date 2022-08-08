@@ -60,16 +60,16 @@ public class Reservas {
 			throw new OperationNotSupportedException("ERROR: No se aceptan más reservas.");
 		}
 
-		int indice = buscarIndice(reserva);
+	//	int indice = buscarIndice(reserva);
 
-		if (tamanoSuperado(indice)) { // Si supera al tamaño significa que hay huecos y se puede agregar otro
+		//if (tamanoSuperado(indice)) { // Si supera al tamaño significa que hay huecos y se puede agregar otro
 			coleccionReservas[tamano] = new Reserva(reserva);
 			tamano++;
 
-		} else {
+		/*} else {
 			throw new OperationNotSupportedException("ERROR: Ya existe una reserva con ese nombre.");
 
-		}
+		}*/
 
 	}
 

@@ -111,22 +111,40 @@ public class Modelo {
 
 			throw new NullPointerException("ERROR: No se puede reservar un aula nula.");
 		}
-
-		Profesor profesor = profesores.buscar(reserva.getProfesor());
-
-		if (profesor == null) {
-
+		
+		Profesor profeReservaRecibida = reserva.getProfesor();
+		
+		
+		if(profeReservaRecibida == null) {
+			
 			throw new OperationNotSupportedException("ERROR: Profesor no pude ser nulo.");
+			
 		}
-
-		Aula aula = aulas.buscar(reserva.getAula());
-
-		if (aula == null) {
-
-			throw new OperationNotSupportedException("ERROR: Aula no pude ser nulo.");
+			
+	    if(profesores.buscar(profeReservaRecibida) == null) {
+				
+		   throw new OperationNotSupportedException("ERROR: Profesor no esta registrado en el sistema");
 		}
+		
+		
+		
+		/*if( profesores.buscar(reserva.getProfesor()) == null) {
+			
+			throw new OperationNotSupportedException("ERROR: Profesor no pude ser nulo.");
+		}*/
+		
+		if (aulas.buscar(reserva.getAula()) == null) {
 
-		reservas.insertar(new Reserva(profesor, aula, reserva.getPermanencia()));
+			throw new OperationNotSupportedException("ERROR: Aula no esta registrado en el sistema");
+		}
+		
+		if(reservas.consultarDisponibilidad(reserva.getAula(), reserva.getPermanencia()) == false) {
+			
+			throw new OperationNotSupportedException("ERROR: Esta aula ya está  reservada para este tramo de  este dia");
+		}
+		
+	
+		reservas.insertar(reserva);
 	}
 
 	public void anularReserva(Reserva reserva) throws OperationNotSupportedException {
@@ -154,6 +172,11 @@ public class Modelo {
 
 	public boolean consultarDisponibilidad(Aula aula, Permanencia permanencia) {
 
+		if(aulas.buscar(aula) == null) {
+			
+			throw new NullPointerException("ERROR: No se puede consultar un aula que no este registrada.");
+		}
+		
 		return reservas.consultarDisponibilidad(aula, permanencia);
 	}
 
